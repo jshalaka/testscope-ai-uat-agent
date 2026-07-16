@@ -53,9 +53,9 @@ Technology choices will be confirmed during the implementation-design stage.
 
 ## Documentation
 
-- [Project overview](docs/01-project-overview.md)
-- [Problem statement](docs/02-problem-statement.md)
-- [POC scope](docs/03-poc-scope.md)
+- [Project overview](docs/project-overview.md)
+- [Problem statement](docs/problem-statement.md)
+- [POC scope](docs/poc-scope.md)
 
 Future documents will cover the sample requirement, structured output schema, solution architecture, implementation plan and evaluation strategy.
 
