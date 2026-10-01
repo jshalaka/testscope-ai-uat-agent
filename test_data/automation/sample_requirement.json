@@ -1,0 +1,10 @@
+{
+  "requirement_id": "BR-PLAYWRIGHT-001",
+  "title": "Transfer money to an existing UK beneficiary",
+  "domain": "Retail Banking",
+  "feature": "UK Money Transfer",
+  "user_story": "As an authenticated customer, I want to transfer money to an existing UK beneficiary so that I can make a secure payment.",
+  "acceptance_criteria": "AC-001 | The customer must be authenticated.\nAC-002 | The customer must select an existing UK beneficiary.\nAC-003 | The transfer must be rejected when sufficient funds are unavailable.",
+  "business_context": "The transfer journey must provide a secure and traceable customer experience.",
+  "known_risks": "Incorrect beneficiary selection\nInsufficient-funds validation failure\nDuplicate payment submission"
+}

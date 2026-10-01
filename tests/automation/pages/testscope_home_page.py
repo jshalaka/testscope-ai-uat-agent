@@ -7,6 +7,35 @@ class TestScopeHomePage:
         self.page = page
         self.app_url = app_url
 
+        self.domain_input: Locator = page.get_by_role(
+            "textbox",
+            name="Domain",
+            exact=True,
+        )
+        self.feature_input: Locator = page.get_by_role(
+            "textbox",
+            name="Feature",
+            exact=True,
+        )
+        self.acceptance_criteria_input: Locator = page.get_by_role(
+            "textbox",
+            name="Acceptance criteria",
+            exact=True,
+        )
+        self.business_context_input: Locator = page.get_by_role(
+            "textbox",
+            name="Business context",
+            exact=True,
+        )
+        self.known_risks_input: Locator = page.get_by_role(
+            "textbox",
+            name="Known risks",
+            exact=True,
+        )
+        self.generate_button: Locator = page.get_by_test_id(
+            "stBaseButton-secondaryFormSubmit"
+        )
+
         self.heading: Locator = page.get_by_text(
             "TestScope AI",
             exact=False,
@@ -36,6 +65,21 @@ class TestScopeHomePage:
     def open(self) -> Response |None:
         """Navigate to the testscope AI application"""
         return self.page.goto(self.app_url)
+
+    def fill_requirement_context(
+        self,
+        domain: str,
+        feature: str,
+        acceptance_criteria: str,
+        business_context: str,
+        known_risks: str,
+    ) -> None:
+        """Enter the remaining requirement and risk information."""
+        self.domain_input.fill(domain)
+        self.feature_input.fill(feature)
+        self.acceptance_criteria_input.fill(acceptance_criteria)
+        self.business_context_input.fill(business_context)
+        self.known_risks_input.fill(known_risks)
 
     def fill_requirement_details(
         self,
