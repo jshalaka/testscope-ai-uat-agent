@@ -1,11 +1,16 @@
 from playwright.sync_api import Page,expect
+from tests.automation.pages.testscope_home_page import TestScopeHomePage # pyright: ignore[reportMissingImports]
 
 def test_testscope_application_loads(page: Page, app_url: str) -> None:
     """Verify that the TestScope AI application loads successfully."""
-    response = page.goto(app_url)
+    
+
+    home_page = TestScopeHomePage(page, app_url)
+    response= home_page.open()
 
     assert response is not None
     assert response.ok
     assert page.url.startswith(app_url)
 
-    expect(page.get_by_text("Testscope AI", exact=False).first).to_be_visible(timeout=15_000)
+    expect(home_page.heading).to_be_visible(timeout=15_000)
+
