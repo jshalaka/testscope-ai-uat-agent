@@ -32,8 +32,17 @@ class TestScopeHomePage:
             name="Known risks",
             exact=True,
         )
-        self.generate_button: Locator = page.get_by_test_id(
-            "stBaseButton-secondaryFormSubmit"
+
+        self.generate_button: Locator = page.get_by_role(
+            "button",
+            name="Generate UAT Test Pack",
+            exact=True,
+        )
+
+        self.validation_error_alert: Locator = page.get_by_role(
+            "alert"
+             ).filter(
+            has_text="validation error for RequirementInput"
         )
 
         self.heading: Locator = page.get_by_text(
@@ -91,3 +100,8 @@ class TestScopeHomePage:
         self.requirement_id_input.fill(requirement_id)
         self.title_input.fill(title)
         self.user_story_input.fill(user_story)
+
+    def submit_requirement(self) -> None:
+        """Submit the requirement for validation and generation."""
+        self.generate_button.click()
+
